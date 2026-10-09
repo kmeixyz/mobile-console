@@ -1,0 +1,52 @@
+# Dependencies and build output
+node_modules/
+dist/
+*.tsbuildinfo
+
+# Environment and local certificates
+.env
+.env.*
+certs/
+*.pem
+*.key
+
+# OS and editor
+.DS_Store
+.vscode/
+.idea/
+
+# Logs
+*.log
+
+# Tests (kept locally, not part of the production repo)
+tests/
+playwright.config.ts
+playwright-report/
+test-results/
+
+# AI tooling, notes and generated artifacts
+.claude/
+.impeccable/
+.playwright-mcp/
+.cursor/
+.cursorrules
+.codex/
+.gemini/
+.windsurf/
+.windsurfrules
+.continue/
+.aider*
+.github/copilot-instructions.md
+CLAUDE.md
+CLAUDE.local.md
+AGENTS.md
+GEMINI.md
+
+# Markdown notes: only the README belongs in the repo
+/*.md
+!/README.md
+
+# Other local caches
+.vite/
+coverage/
+*.local

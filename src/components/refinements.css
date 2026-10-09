@@ -1,0 +1,1058 @@
+/* Shared Apple-inspired materials. Use the system SF family on Apple devices. */
+:root {
+  --blue: #0066cc;
+  --control-radius: 999px;
+}
+/* One page color behind everything, including the browser's tinted bars and overscroll. */
+html,
+body {
+  background: #f5f5f7;
+}
+button {
+  -webkit-user-select: none;
+  user-select: none;
+}
+button,
+input,
+select,
+summary {
+  scroll-margin-block: 100px;
+}
+.primary-button,
+.secondary-button {
+  border-radius: var(--control-radius);
+}
+.primary-button {
+  box-shadow:
+    inset 0 1px 0 #ffffff30,
+    0 4px 12px #0066cc18;
+}
+/* One wordmark everywhere: the desktop topbar and the phone controller header. */
+.brand {
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: #000;
+  text-decoration: none;
+}
+@media (max-width: 760px) {
+  .brand {
+    font-size: 20px;
+  }
+}
+.page-heading h1,
+.play-library .page-heading h1 {
+  font-size: clamp(40px, 4.6vw, 60px);
+  font-weight: 620;
+  letter-spacing: -0.01em;
+}
+.play-library .page-heading p {
+  max-width: 40ch;
+}
+
+.play-library .quick-play {
+  background: linear-gradient(110deg, #dfebfa, #eceffa 65%, #f6eaf2);
+  border: 1px solid #ffffffb3;
+  padding: 30px;
+  border-radius: 32px;
+  box-shadow: inset 0 1px 0 #fff;
+}
+.play-library .quick-heading {
+  align-items: flex-start;
+  gap: 12px;
+}
+.play-library .quick-heading > svg {
+  color: var(--blue);
+  margin-top: 6px;
+}
+.play-library .quick-heading h2 {
+  font-size: 30px;
+  line-height: 1.1;
+  letter-spacing: -0.045em;
+}
+.play-library .quick-heading p {
+  color: #535d6a;
+  margin-top: 9px;
+}
+.play-library .quick-actions {
+  gap: 12px;
+}
+.play-library .quick-actions button {
+  border: 1px solid #ffffffb3;
+  padding: 16px 12px;
+}
+.play-library .quick-actions button .quick-play-icon {
+  background: #0066cc;
+  color: white;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+}
+.catalog-tools {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 22px;
+}
+.library-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.library-filters button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  padding: 10px 16px;
+  min-height: 44px;
+  border-radius: 99px;
+  font-size: 14px;
+  font-weight: 590;
+  color: #515a68;
+  background: #e8ebf0;
+  transition: background 180ms ease;
+}
+.library-filters .active {
+  color: #fff;
+  background: #1d1d1f;
+}
+
+.shelf-game {
+  position: relative;
+  border-radius: 26px;
+  box-shadow: 0 4px 18px #27345409;
+}
+.shelf-launch {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  text-align: left;
+  border-radius: inherit;
+}
+.shelf-art {
+  border-radius: 26px 26px 0 0;
+}
+.shelf-copy h3 {
+  font-weight: 700;
+}
+.shelf-play {
+  color: #0059b3;
+  background: #ecf3fc;
+}
+
+.launch-form {
+  background: var(--glass);
+  padding: 26px;
+  border-radius: 28px;
+  border: 1px solid #fff;
+  box-shadow: 0 8px 30px #26365406;
+}
+.launch-art {
+  box-shadow: 0 8px 30px #26365409;
+  border-radius: 28px;
+}
+
+.game-main:has(.session-next) .finish-actions {
+  display: none;
+}
+.session-next {
+  border: 1px solid #fff;
+  background: var(--glass);
+  box-shadow: var(--glass-shadow);
+}
+.session-next .primary-button {
+  width: 100%;
+}
+.session-dots i.complete {
+  background: #248a43;
+}
+.menu-actions,
+.settings-group {
+  border-radius: 22px;
+  overflow: hidden;
+}
+@media (hover: hover) {
+  .library-filters button:not(.active):hover {
+    background: #dce2ec;
+  }
+}
+@media (max-width: 1050px) {
+  .catalog-tools {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+}
+@media (max-width: 760px) {
+  .play-library .page-heading {
+    margin-bottom: 20px;
+  }
+  .play-library .page-heading p {
+    font-size: 15px;
+    margin-top: 6px;
+  }
+
+  .play-library .quick-play {
+    padding: 20px;
+    border-radius: 26px;
+  }
+  .play-library .quick-heading h2 {
+    font-size: 26px;
+  }
+  .play-library .quick-heading h2 br {
+    display: none;
+  }
+  .play-library .quick-actions button {
+    padding: 10px;
+  }
+  .library-filters {
+    width: 100%;
+    gap: 5px;
+  }
+  .library-filters button {
+    flex: 1 0 auto;
+    white-space: nowrap;
+    padding: 10px;
+    font-size: 12px;
+    gap: 5px;
+  }
+  .catalog-tools {
+    margin-bottom: 16px;
+    gap: 10px;
+  }
+  .shelf-art,
+  .shelf-game {
+    border-radius: 22px;
+  }
+  .shelf-art {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+  .shelf-copy {
+    padding: 14px 12px;
+  }
+  .shelf-copy h3 {
+    font-size: 18px;
+  }
+  .launch-setup {
+    gap: 16px;
+    padding-top: 4px;
+  }
+  .launch-form {
+    padding: 20px 16px;
+    border-radius: 24px;
+  }
+
+  .launch-form h2 {
+    font-size: 27px;
+  }
+
+}
+@media (max-width: 350px) {
+  .library-filters button {
+    font-size: 11px;
+    padding: 10px 7px;
+  }
+  .library-filters svg {
+    display: none;
+  }
+  .shelf-copy h3 {
+    font-size: 16px;
+  }
+}
+
+.play-library .quick-actions .quick-play-icon svg {
+  color: #fff;
+}
+.session-recap {
+  margin: 28px auto;
+  max-width: 800px;
+  padding: 28px;
+  border-radius: 28px;
+  background: var(--glass);
+  text-align: center;
+  border: 1px solid #fff;
+}
+.session-recap > h2 {
+  font-size: 28px;
+}
+.session-recap > p {
+  font-size: 14px;
+  color: var(--muted);
+  margin: 8px 0 20px;
+}
+.recap-games {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  text-align: left;
+}
+.recap-game {
+  background: #f2f4f8;
+  border-radius: 20px;
+  padding: 16px;
+  min-width: 0;
+}
+.recap-game header {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.recap-game img {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  object-fit: cover;
+}
+.recap-game h3 {
+  font-size: 17px;
+}
+.recap-game ol {
+  list-style: none;
+  padding: 0;
+  margin: 12px 0 0;
+}
+.recap-game li {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  padding: 10px 0;
+  border-top: 1px solid #e0e5ee;
+  font-size: 14px;
+}
+.recap-name {
+  flex: 1;
+  overflow-wrap: anywhere;
+  min-width: 0;
+}
+.recap-game strong {
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.recap-game small {
+  font-size: 11px;
+  font-weight: 400;
+  color: var(--muted);
+}
+.recap-best {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  font-size: 11px;
+  color: #0055ad;
+}
+
+@media (max-width: 760px) {
+  .session-recap {
+    padding: 20px 16px;
+  }
+  .session-recap > h2 {
+    font-size: 24px;
+  }
+  .recap-games {
+    grid-template-columns: 1fr;
+  }
+}
+/* The final recap already includes the last game's scores. */
+.session-complete .round-finished {
+  display: none;
+}
+.session-complete .session-recap {
+  margin-top: 20px;
+}
+/* Connection-first entry, with an explicitly chosen local fallback. */
+.app[hidden] {
+  display: none;
+}
+.phone-welcome {
+  max-width: 1200px;
+  min-height: 100dvh;
+  padding: 64px 40px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  align-items: center;
+  gap: 70px;
+}
+.phone-welcome h1 {
+  font-size: clamp(44px, 5.6vw, 76px);
+  font-weight: 620;
+  line-height: 1.04;
+  letter-spacing: -0.01em;
+  max-width: 11ch;
+}
+.phone-welcome h1:focus {
+  outline: none;
+}
+.phone-welcome-copy > p {
+  color: #535d6a;
+  font-size: 20px;
+  margin-top: 30px;
+  max-width: 38ch;
+}
+.welcome-steps {
+  list-style: none;
+  padding: 0;
+  margin: 40px 0;
+  display: grid;
+  gap: 20px;
+}
+.welcome-steps li {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+}
+.welcome-steps li > span {
+  min-width: 2ch;
+  flex: none;
+  font-size: 22px;
+  font-weight: 650;
+  font-variant-numeric: tabular-nums;
+}
+.welcome-steps li > div {
+  font-size: 22px;
+}
+.welcome-steps p {
+  color: var(--muted);
+  font-size: 14px;
+  margin-top: 3px;
+}
+
+.welcome-connect {
+  border: 1px solid rgba(255, 255, 255, 0.75);
+  background: linear-gradient(
+    150deg,
+    rgba(255, 255, 255, 0.62),
+    rgba(255, 255, 255, 0.28)
+  );
+  backdrop-filter: blur(32px) saturate(1.8);
+  -webkit-backdrop-filter: blur(32px) saturate(1.8);
+  box-shadow:
+    0 24px 60px rgba(38, 54, 84, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.95),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.4);
+  border-radius: 34px;
+  padding: 30px;
+  min-width: 0;
+}
+:root[data-transparency="reduce"] .welcome-connect .pair-qr,
+:root[data-contrast="high"] .welcome-connect .pair-qr {
+  background: #fff;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+:root[data-transparency="reduce"] .welcome-connect,
+:root[data-contrast="high"] .welcome-connect {
+  background: var(--glass);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+@media (prefers-reduced-transparency: reduce) {
+  .welcome-connect .pair-qr {
+    background: #fff;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+  .welcome-connect {
+    background: var(--glass);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+}
+.welcome-connect .sheet-intro {
+  font-size: 15px;
+}
+.welcome-connect .pair-qr {
+  margin: 22px auto;
+  background: linear-gradient(
+    150deg,
+    rgba(255, 255, 255, 0.92),
+    rgba(255, 255, 255, 0.7)
+  );
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(20px) saturate(1.6);
+  -webkit-backdrop-filter: blur(20px) saturate(1.6);
+  box-shadow:
+    0 10px 30px rgba(38, 54, 84, 0.1),
+    inset 0 1px 0 #fff,
+    inset 0 -1px 0 rgba(255, 255, 255, 0.5);
+  border-radius: 24px;
+  width: 330px;
+  max-width: 100%;
+  aspect-ratio: 1;
+  min-height: 0;
+}
+.welcome-connect .pair-qr svg {
+  width: 300px;
+  max-width: calc(100% - 28px);
+  height: auto;
+}
+/* Slightly firmer button so it holds up against the glass card. */
+.welcome-connect .secondary-button {
+  background: #e5e9f0;
+  color: #1f252e;
+  box-shadow: inset 0 0 0 1px rgba(31, 45, 70, 0.06);
+}
+.welcome-connect .secondary-button:hover:not(:disabled) {
+  background: #dbe1ea;
+}
+.welcome-connect .room-code {
+  font-variant-numeric: tabular-nums;
+}
+/* Connected state fills the card at a larger scale. */
+.welcome-connect .paired-success {
+  padding: 72px 8px;
+}
+.welcome-connect .paired-success > p {
+  font-size: 18px;
+  margin: 18px 0 34px;
+}
+/* Connected players replace the "Phone connected." title, one bulleted name per phone. */
+.connected-players {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 30px;
+  display: grid;
+  justify-items: center;
+  gap: 10px;
+}
+.connected-players li {
+  font-size: 40px;
+  font-weight: 620;
+  letter-spacing: -0.01em;
+  line-height: 1.15;
+  overflow-wrap: anywhere;
+}
+.connected-players li::before {
+  content: "• ";
+  color: #34a853;
+}
+.connected-players li.pending {
+  color: #8a939e;
+}
+
+.welcome-connect .paired-success .primary-button {
+  margin: 20px auto;
+  min-height: 58px;
+  padding: 15px 32px;
+  font-size: 18px;
+  gap: 12px;
+}
+.welcome-connect .paired-success .primary-button svg {
+  width: 22px;
+  height: 22px;
+}
+.welcome-connect .paired-success > .text-button {
+  font-size: 17px;
+  margin-top: 16px;
+}
+
+.controller-page > main > .motion-input {
+  margin: 20px 0;
+}
+/* Shared title format: phone page titles at 40px, game titles keep their own size. */
+.controller-page .join-room > h1,
+.controller-page .controller-wait > h1,
+.controller-page .active-controller h1 {
+  font-size: 40px;
+}
+.controller-page .join-room > h1,
+.controller-page .controller-wait > h1,
+.controller-page .active-controller h1,
+.game-topline h1,
+.launch-form h2,
+.court-overlay h2,
+.round-finished h2,
+.turn-handoff h2,
+.session-recap > h2,
+.empty-scores h2,
+.game-error h2 {
+  font-weight: 620;
+  letter-spacing: -0.01em;
+}
+.controller-page .join-room > h1 {
+  margin-bottom: 32px;
+}
+.controller-page .join-room .room-code-input {
+  margin-top: 0;
+}
+.name-input {
+  display: block;
+  width: 100%;
+  background: #f4f6f9;
+  border: 1px solid #e4e9f0;
+  border-radius: 12px;
+  margin: 0 0 20px;
+  padding: 17px 16px;
+  text-align: center;
+  font-size: 24px;
+  font-weight: 550;
+  color: #1d1d1f;
+}
+.name-input::placeholder {
+  color: #9faec2;
+}
+/* Brand left, room code centered, connection status right. */
+.controller-page .controller-header {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 8px;
+}
+.controller-header > * {
+  white-space: nowrap;
+}
+/* Narrow phones keep the check only; the label stays readable to screen readers. */
+@media (max-width: 370px) {
+  .controller-header .connected-label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+}
+.controller-header > .room-pill {
+  justify-self: center;
+  padding: 0;
+  background: none;
+  font-size: 12px;
+  color: #5f6874;
+  font-variant-numeric: tabular-nums;
+}
+.controller-header > .room-pill:hover {
+  color: #1d1d1f;
+}
+.controller-page .controller-wait {
+  margin-top: 32px;
+}
+.controller-page .input-choice-row {
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.controller-page .input-choice-row > .primary-button {
+  width: 100%;
+}
+/* Larger motion box on the phone so its setup step is easy to read and tap. */
+.controller-page .motion-input {
+  padding: 30px 24px;
+  border-radius: 24px;
+}
+.controller-page .input-choice-row {
+  gap: 22px;
+}
+
+.controller-page .input-choice-row > .primary-button {
+  min-height: 60px;
+  font-size: 18px;
+  gap: 12px;
+}
+.controller-page .input-choice-row > .primary-button svg {
+  width: 22px;
+  height: 22px;
+}
+.controller-page .input-permission-note {
+  font-size: 15px;
+  margin-top: 16px;
+}
+.controller-page .motion-error {
+  font-size: 15px;
+  padding: 16px 18px;
+  margin-top: 18px;
+  border-radius: 14px;
+}
+@media (max-width: 760px) {
+  .phone-welcome {
+    padding: 32px 20px;
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  .phone-welcome h1 {
+    max-width: 13ch;
+    font-size: 48px;
+  }
+  .welcome-steps li > span,
+  .welcome-steps li > div {
+    font-size: 18px;
+  }
+  .phone-welcome-copy > p {
+    font-size: 17px;
+    margin-top: 22px;
+  }
+  .welcome-steps {
+    gap: 14px;
+    margin: 30px 0;
+  }
+  .welcome-connect {
+    padding: 22px 18px;
+    border-radius: 26px;
+  }
+  .welcome-connect .paired-success {
+    padding: 40px 0;
+  }
+  .connected-players li {
+    font-size: 32px;
+  }
+  .welcome-connect .paired-success > p {
+    font-size: 16px;
+  }
+}
+.controller-wait > p {
+  color: #535d6a;
+}
+
+/* Minimal pass: lighter section headings and compact helper rows. */
+.play-library .quick-play {
+  padding: 22px;
+}
+.play-library .quick-heading {
+  align-items: center;
+  gap: 8px;
+}
+.play-library .quick-heading > svg {
+  margin-top: 0;
+}
+.play-library .quick-heading h2 {
+  font-size: 22px;
+  letter-spacing: -0.03em;
+}
+
+.privacy-note {
+  font-size: 13px;
+  color: #535d6a;
+  text-align: center;
+}
+@media (max-width: 760px) {
+  .play-library .quick-play {
+    padding: 18px;
+  }
+  .play-library .quick-heading h2 {
+    font-size: 20px;
+  }
+}
+
+/* Simple library controls: text-only switches that match the top bar tabs. */
+.mode-switch,
+.night-length {
+  display: flex;
+  gap: 4px;
+  padding: 4px;
+  border-radius: 999px;
+  background: #ececf0;
+}
+.mode-switch button,
+.night-length button {
+  min-height: 40px;
+  padding: 0 18px;
+  border-radius: 999px;
+  font-size: 15px;
+  font-weight: 570;
+  color: #5f6874;
+  white-space: nowrap;
+}
+.mode-switch button.selected,
+.night-length button.selected {
+  background: #fff;
+  color: #1d1d1f;
+  box-shadow: 0 1px 3px rgba(38, 54, 84, 0.12);
+}
+.group-line {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 14px;
+  margin: -8px 0 18px;
+  font-size: 16px;
+  color: #535d6a;
+}
+.night-row {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 22px 26px;
+  margin-bottom: 28px;
+  border-radius: 24px;
+  background: #fff;
+}
+.night-row > div:first-child {
+  flex: 1;
+  min-width: 0;
+}
+.night-row h2 {
+  font-size: 22px;
+  font-weight: 620;
+  letter-spacing: -0.01em;
+}
+.night-row p {
+  margin-top: 4px;
+  font-size: 15px;
+  color: #5f6874;
+}
+.night-length button {
+  min-height: 34px;
+  padding: 0 14px;
+  font-size: 14px;
+}
+@media (max-width: 760px) {
+  .play-library .page-heading {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  .mode-switch {
+    width: 100%;
+  }
+  .mode-switch button {
+    flex: 1;
+  }
+  .night-row {
+    flex-wrap: wrap;
+    padding: 18px;
+    gap: 14px;
+  }
+  .night-row > div:first-child {
+    flex-basis: 100%;
+  }
+  .night-row .primary-button {
+    flex: 1;
+  }
+}
+
+/* In a game, the game is the page: a plain header row and nothing else above it. */
+.app.in-game .topbar {
+  display: none;
+}
+.game-main .game-topline {
+  background: none;
+  box-shadow: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border-radius: 0;
+  padding: 0;
+  min-height: 72px;
+  margin: 8px 0 12px;
+}
+.game-main .game-topline h1 {
+  font-size: 26px;
+  font-weight: 620;
+  letter-spacing: -0.01em;
+}
+.game-main .game-topline > .game-menu-button {
+  background: none;
+  font-size: 15px;
+}
+.game-main .game-topline .back-button {
+  font-size: 15px;
+}
+.arrow-progress {
+  font-size: 15px;
+  font-weight: 550;
+  color: #535d6a;
+}
+
+/* Game setup: plain text, one control per row. */
+.launch-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.launch-form .player-inputs {
+  margin: 0;
+}
+.launch-form > .primary-button {
+  margin-top: 6px;
+}
+.setup-howto h2 {
+  font-size: 24px;
+  font-weight: 620;
+  letter-spacing: -0.01em;
+  margin: 0 0 8px;
+}
+.setup-howto p {
+  font-size: 16px;
+  line-height: 1.5;
+  color: #535d6a;
+}
+.setup-note {
+  font-size: 16px;
+  color: #1d1d1f;
+}
+.setup-check {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 16px;
+}
+.setup-check input {
+  width: 20px;
+  height: 20px;
+  accent-color: var(--blue);
+}
+.launch-form .mode-switch {
+  align-self: flex-start;
+}
+
+/* Sheets are solid so the page behind doesn't tint them. */
+.sheet {
+  background: #fbfbfc;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+.setting-row strong,
+.name-setting strong {
+  font-size: 15px;
+}
+.setting-row p {
+  font-size: 13px;
+}
+.settings-group {
+  background: #f2f3f6;
+}
+.name-setting input {
+  background: #f2f3f6;
+}
+.shelf-copy h3 {
+  font-weight: 620;
+  letter-spacing: -0.01em;
+}
+.launch-form > p,
+.launch-form .setup-howto p {
+  margin: 0;
+}
+.motion-enabled .motion-body {
+  border-top: 0;
+  margin-top: 0;
+  padding-top: 0;
+}
+.controller-page .motion-guidance p {
+  font-size: 16px;
+  line-height: 1.45;
+  color: #3d4652;
+}
+.controller-page .calibration-row {
+  justify-content: flex-end;
+  min-height: 0;
+}
+.controller-page .calibration-row > span:empty {
+  display: none;
+}
+.solo-result strong,
+.finish-scores strong {
+  color: #1d1d1f;
+}
+
+/* Several phones: one row per player, with room for more to join. */
+.connected-players li {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 14px;
+}
+.connected-players li .text-button {
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0;
+  color: #6e7785;
+  min-height: 32px;
+}
+.connected-players li .text-button:hover {
+  color: #b42318;
+}
+.connected-players.many li {
+  font-size: 28px;
+}
+.add-phone {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 28px;
+  padding-top: 24px;
+  border-top: 1px solid #e6e8ee;
+  text-align: left;
+}
+.add-phone svg {
+  flex: none;
+  padding: 6px;
+  border-radius: 12px;
+  background: #fff;
+}
+.add-phone p {
+  font-size: 15px;
+  color: #535d6a;
+}
+.add-phone strong {
+  display: block;
+  margin-top: 2px;
+  font-size: 22px;
+  font-weight: 650;
+  letter-spacing: 3px;
+  color: #1d1d1f;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Bowling pad on the phone: Move/Aim, ◀ ▶, and two slider tracks. */
+.bowl-pad {
+  display: grid;
+  gap: 14px;
+  margin: 6px 0 16px;
+}
+.bowl-pad .mode-switch {
+  justify-self: center;
+}
+.bowl-pad-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.bowl-nudge {
+  flex: none;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #ececf0;
+  font-size: 20px;
+  color: #1d1d1f;
+}
+.bowl-nudge:active:not(:disabled) {
+  background: #dfe2e8;
+}
+.bowl-nudge:disabled {
+  opacity: 0.4;
+}
+.bowl-tracks {
+  flex: 1;
+  display: grid;
+  gap: 14px;
+}
+.bowl-track {
+  position: relative;
+  height: 6px;
+  border-radius: 3px;
+  background: #e3e6ec;
+  opacity: 0.45;
+}
+.bowl-track.active {
+  opacity: 1;
+}
+.bowl-track span {
+  position: absolute;
+  top: 50%;
+  width: 18px;
+  height: 18px;
+  margin-left: -9px;
+  border-radius: 50%;
+  background: var(--blue);
+  transform: translateY(-50%);
+  transition: left 120ms ease;
+}
+.motion-hint {
+  margin-top: 10px;
+  text-align: center;
+  font-size: 15px;
+  color: #b42318;
+}
