@@ -1,0 +1,63 @@
+/* The maze is drawn on a canvas that fills the arena; its lavender matches
+   the canvas edge so the maze sits centered. */
+.maze-arena {
+  position: relative;
+  background: #e6e3fa;
+}
+.maze-arena canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+.maze-hud {
+  font-variant-numeric: tabular-nums;
+}
+.court-overlay .maze-stars {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  margin: 4px 0 6px;
+  font-size: 44px;
+  line-height: 1;
+  color: #d9d5ea;
+}
+.court-overlay .maze-stars .earned {
+  color: #ffc533;
+  -webkit-text-stroke: 2px #b5790a;
+}
+:root[data-motion="full"] .maze-stars .earned {
+  animation: maze-star 360ms cubic-bezier(0.2, 0.9, 0.3, 1.4) both;
+}
+.maze-stars .earned:nth-child(2) {
+  animation-delay: 120ms;
+}
+.maze-stars .earned:nth-child(3) {
+  animation-delay: 240ms;
+}
+@keyframes maze-star {
+  from {
+    transform: scale(0.4);
+    opacity: 0;
+  }
+}
+.maze-breakdown {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px 16px;
+  margin: 0 0 8px;
+  padding: 0;
+  list-style: none;
+  font-weight: 600;
+  color: var(--muted);
+}
+.maze-breakdown li::before {
+  content: "○ ";
+}
+.maze-breakdown li.earned {
+  color: #38674b;
+}
+.maze-breakdown li.earned::before {
+  content: "✓ ";
+}

@@ -1,0 +1,101 @@
+{
+  "version": 1,
+  "batchPath": "/Users/kevinmei/Documents/Projects/mobile-console/videos/game-tutorials/rows.json",
+  "manifestPath": "/Users/kevinmei/Documents/Projects/mobile-console/public/tutorials/manifest.json",
+  "total": 6,
+  "completed": 6,
+  "failed": 0,
+  "skipped": 0,
+  "rows": [
+    {
+      "index": 0,
+      "outputPath": "/Users/kevinmei/Documents/Projects/mobile-console/public/tutorials/target.mp4",
+      "status": "completed",
+      "durationMs": 5000,
+      "renderTimeMs": 19048,
+      "error": null,
+      "startedAt": "2026-10-23T18:16:02.074Z",
+      "completedAt": "2026-10-23T18:16:21.469Z",
+      "variables": {
+        "game": "target",
+        "footage": "assets/gameplay-target.mp4",
+        "opening": "assets/opening-target.png"
+      }
+    },
+    {
+      "index": 1,
+      "outputPath": "/Users/kevinmei/Documents/Projects/mobile-console/public/tutorials/fruit.mp4",
+      "status": "completed",
+      "durationMs": 5000,
+      "renderTimeMs": 19018,
+      "error": null,
+      "startedAt": "2026-10-23T18:16:21.469Z",
+      "completedAt": "2026-10-23T18:16:40.826Z",
+      "variables": {
+        "game": "fruit",
+        "footage": "assets/gameplay-fruit.mp4",
+        "opening": "assets/opening-fruit.png"
+      }
+    },
+    {
+      "index": 2,
+      "outputPath": "/Users/kevinmei/Documents/Projects/mobile-console/public/tutorials/hockey.mp4",
+      "status": "completed",
+      "durationMs": 5000,
+      "renderTimeMs": 18776,
+      "error": null,
+      "startedAt": "2026-10-23T18:16:40.826Z",
+      "completedAt": "2026-10-23T18:16:59.929Z",
+      "variables": {
+        "game": "hockey",
+        "footage": "assets/gameplay-hockey.mp4",
+        "opening": "assets/opening-hockey.png"
+      }
+    },
+    {
+      "index": 3,
+      "outputPath": "/Users/kevinmei/Documents/Projects/mobile-console/public/tutorials/moles.mp4",
+      "status": "completed",
+      "durationMs": 5000,
+      "renderTimeMs": 18850,
+      "error": null,
+      "startedAt": "2026-10-23T18:16:59.929Z",
+      "completedAt": "2026-10-23T18:17:19.094Z",
+      "variables": {
+        "game": "moles",
+        "footage": "assets/gameplay-moles.mp4",
+        "opening": "assets/opening-moles.png"
+      }
+    },
+    {
+      "index": 4,
+      "outputPath": "/Users/kevinmei/Documents/Projects/mobile-console/public/tutorials/maze.mp4",
+      "status": "completed",
+      "durationMs": 5000,
+      "renderTimeMs": 18833,
+      "error": null,
+      "startedAt": "2026-10-23T18:17:19.094Z",
+      "completedAt": "2026-10-23T18:17:38.276Z",
+      "variables": {
+        "game": "maze",
+        "footage": "assets/gameplay-maze.mp4",
+        "opening": "assets/opening-maze.png"
+      }
+    },
+    {
+      "index": 5,
+      "outputPath": "/Users/kevinmei/Documents/Projects/mobile-console/public/tutorials/rally.mp4",
+      "status": "completed",
+      "durationMs": 5000,
+      "renderTimeMs": 18424,
+      "error": null,
+      "startedAt": "2026-10-23T18:17:38.277Z",
+      "completedAt": "2026-10-23T18:17:57.020Z",
+      "variables": {
+        "game": "rally",
+        "footage": "assets/gameplay-rally.mp4",
+        "opening": "assets/opening-rally.png"
+      }
+    }
+  ]
+}

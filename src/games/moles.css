@@ -1,0 +1,25 @@
+.moles-game { min-height: 0; }
+.moles-garden { position: relative; display: flex; flex: 1; min-height: 260px; overflow: hidden; border-radius: 28px; background: #dcebc5; }
+.moles-garden .court-overlay { background: #dcebc5d9; }
+.moles-board { display: block; width: 100%; height: 100%; position: absolute; inset: 0; }
+.moles-timer { display: flex; align-items: center; gap: 8px; font-variant-numeric: tabular-nums; }
+.moles-timer strong { font-size: 25px; }
+.moles-timer.is-urgent { color: #a2342b; }
+.moles-feedback { fill: #275a32; font: 800 29px -apple-system, BlinkMacSystemFont, sans-serif; paint-order: stroke; stroke: #fffdf4; stroke-width: 6px; }
+.moles-feedback.is-wrong { fill: #a2342b; }
+.moles-animal { animation: mole-pop 1.4s linear both; }
+@keyframes mole-pop {
+  0% { transform: translateY(110px); animation-timing-function: cubic-bezier(.16, 1, .3, 1); }
+  15%, 80% { transform: translateY(0); }
+  100% { transform: translateY(110px); }
+}
+.moles-paused .moles-animal, .moles-paused .moles-feedback { animation-play-state: paused; }
+:root[data-motion="full"] .moles-feedback { animation: mole-cheer 600ms cubic-bezier(.16, 1, .3, 1) both; }
+@keyframes mole-cheer { from { opacity: .4; translate: 0 12px; } to { opacity: 1; translate: 0 -12px; } }
+.moles-reduced .moles-animal { animation: none; }
+.moles-reduced .moles-hammer { display: none; }
+@media (prefers-reduced-motion: reduce) { .moles-hammer { display: none; } }
+@media (prefers-reduced-motion: reduce) { .moles-animal, :root[data-motion="full"] .moles-feedback { animation: none; } }
+@media (max-width: 600px) {
+  .moles-garden { border-radius: 20px; }
+}

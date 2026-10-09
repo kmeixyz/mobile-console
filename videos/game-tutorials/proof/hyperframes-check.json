@@ -1,0 +1,47 @@
+{
+  "ok": true,
+  "browserSkipped": false,
+  "audits": {
+    "lint": {
+      "ok": true,
+      "errorCount": 0,
+      "warningCount": 0,
+      "infoCount": 0
+    },
+    "runtime": {
+      "ok": true,
+      "errorCount": 0,
+      "warningCount": 0,
+      "infoCount": 0
+    },
+    "layout": {
+      "ok": true,
+      "errorCount": 0,
+      "warningCount": 0,
+      "infoCount": 0
+    },
+    "motion": {
+      "ok": true,
+      "errorCount": 0,
+      "warningCount": 0,
+      "infoCount": 0
+    },
+    "contrast": {
+      "ok": true,
+      "errorCount": 0,
+      "warningCount": 0,
+      "infoCount": 0
+    }
+  },
+  "sampleTimes": [
+    0.278,
+    0.833,
+    1.389,
+    1.944,
+    2.5,
+    3.056,
+    3.611,
+    4.167,
+    4.722
+  ]
+}

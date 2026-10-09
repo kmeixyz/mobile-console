@@ -1,0 +1,38 @@
+# Dependencies and build output
+node_modules/
+dist/
+*.tsbuildinfo
+
+# Environment and local certificates
+.env
+.env.*
+certs/
+*.pem
+*.key
+
+# OS and editor
+.DS_Store
+.vscode/
+.idea/
+
+# Logs
+*.log
+
+# Tests (kept locally, not part of the production repo)
+tests/
+playwright.config.ts
+playwright-report/
+test-results/
+
+# Local workspace settings and generated artifacts
+/.*
+!/.gitignore
+
+# Markdown notes: only the README belongs in the repo
+/*.md
+!/README.md
+
+# Other local caches
+.vite/
+coverage/
+*.local

@@ -1,0 +1,7 @@
+.hyperframes/
+*.log
+check.json
+__pycache__/
+AGENTS.md
+CLAUDE.md
+BRIEF.md

@@ -1,0 +1,12 @@
+{
+  "name": "game-tutorials",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "npx --yes hyperframes@0.8.167 preview",
+    "check": "npx --yes hyperframes@0.8.167 check",
+    "render": "npx --yes hyperframes@0.8.167 render --batch rows.json --output \"../../public/tutorials/{game}.mp4\" --fps 60 --quality looks --batch-concurrency 1 --strict-variables --workers 1 --experimental-fast-capture=false --video-frame-format png --frames-cache-dir off",
+    "publish": "npx --yes hyperframes@0.8.167 publish",
+    "verify": "python3 verify.py"
+  }
+}

@@ -1,0 +1,32 @@
+[
+  {
+    "game": "target",
+    "footage": "assets/gameplay-target.mp4",
+    "opening": "assets/opening-target.png"
+  },
+  {
+    "game": "fruit",
+    "footage": "assets/gameplay-fruit.mp4",
+    "opening": "assets/opening-fruit.png"
+  },
+  {
+    "game": "hockey",
+    "footage": "assets/gameplay-hockey.mp4",
+    "opening": "assets/opening-hockey.png"
+  },
+  {
+    "game": "moles",
+    "footage": "assets/gameplay-moles.mp4",
+    "opening": "assets/opening-moles.png"
+  },
+  {
+    "game": "maze",
+    "footage": "assets/gameplay-maze.mp4",
+    "opening": "assets/opening-maze.png"
+  },
+  {
+    "game": "rally",
+    "footage": "assets/gameplay-rally.mp4",
+    "opening": "assets/opening-rally.png"
+  }
+]

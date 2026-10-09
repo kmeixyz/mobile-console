@@ -1,0 +1,89 @@
+{
+  "version": 1,
+  "batchPath": "videos/game-tutorials/rows.json",
+  "manifestPath": "public/tutorials/manifest.json",
+  "total": 6,
+  "completed": 6,
+  "failed": 0,
+  "skipped": 0,
+  "rows": [
+    {
+      "index": 0,
+      "outputPath": "public/tutorials/target.mp4",
+      "status": "completed",
+      "durationMs": 5000,
+      "renderTimeMs": 14655,
+      "error": null,
+      "startedAt": "2026-10-22T16:17:29.050Z",
+      "completedAt": "2026-10-22T16:17:44.715Z",
+      "variables": {
+        "game": "target"
+      }
+    },
+    {
+      "index": 1,
+      "outputPath": "public/tutorials/fruit.mp4",
+      "status": "completed",
+      "durationMs": 5000,
+      "renderTimeMs": 8229,
+      "error": null,
+      "startedAt": "2026-10-22T16:17:44.716Z",
+      "completedAt": "2026-10-22T16:17:53.352Z",
+      "variables": {
+        "game": "fruit"
+      }
+    },
+    {
+      "index": 2,
+      "outputPath": "public/tutorials/hockey.mp4",
+      "status": "completed",
+      "durationMs": 5000,
+      "renderTimeMs": 7748,
+      "error": null,
+      "startedAt": "2026-10-22T16:17:53.352Z",
+      "completedAt": "2026-10-22T16:18:01.507Z",
+      "variables": {
+        "game": "hockey"
+      }
+    },
+    {
+      "index": 3,
+      "outputPath": "public/tutorials/moles.mp4",
+      "status": "completed",
+      "durationMs": 5000,
+      "renderTimeMs": 6555,
+      "error": null,
+      "startedAt": "2026-10-22T16:18:01.508Z",
+      "completedAt": "2026-10-22T16:18:08.352Z",
+      "variables": {
+        "game": "moles"
+      }
+    },
+    {
+      "index": 4,
+      "outputPath": "public/tutorials/maze.mp4",
+      "status": "completed",
+      "durationMs": 5000,
+      "renderTimeMs": 5985,
+      "error": null,
+      "startedAt": "2026-10-22T16:18:08.352Z",
+      "completedAt": "2026-10-22T16:18:14.747Z",
+      "variables": {
+        "game": "maze"
+      }
+    },
+    {
+      "index": 5,
+      "outputPath": "public/tutorials/rally.mp4",
+      "status": "completed",
+      "durationMs": 5000,
+      "renderTimeMs": 7151,
+      "error": null,
+      "startedAt": "2026-10-22T16:18:14.748Z",
+      "completedAt": "2026-10-22T16:18:22.167Z",
+      "variables": {
+        "game": "rally"
+      }
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+.launch-art .game-tutorial {
+  margin: 0;
+  width: 100%;
+  aspect-ratio: 6 / 5;
+  overflow: hidden;
+  background: #edf4f6;
+}
+.game-tutorial video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  pointer-events: none;
+}
+.launch-art .tutorial-fruit { background: #fff0d8; }
+.launch-art .tutorial-maze { background: #e6e3fa; }
+.launch-art .tutorial-moles { background: #e9f2d6; }
+.launch-art .tutorial-rally { background: #d9eee9; }
+@media (max-width: 720px) {
+  .launch-art:has(.game-tutorial) { position: relative; top: auto; }
+  .launch-art .game-tutorial { max-height: none; }
+}
