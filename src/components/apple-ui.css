@@ -1,0 +1,245 @@
+/* Current waitingatlurie.org navigation: three independent glass pills.
+   The same logo, status, and action groups adapt to compact phone screens. */
+:root {
+  --nav-glass: linear-gradient(115deg, #ffffff26, #ffffff04 42%, #dce5ef10 75%, #ffffff1c), rgba(255, 255, 255, .14);
+  --nav-blur: blur(10px) saturate(1.6) contrast(.62) brightness(1.38);
+  --nav-border: #ffffff6b;
+  --nav-shadow: 0 8px 28px #20334c14, 0 2px 6px #20334c0a, inset 0 1px 1px #ffffffb3, inset 0 -1px 1px #52647a24;
+  /* Buttons wear the same glass, a little denser so they read on pale cards. */
+  --control-glass: linear-gradient(135deg, #ffffffb3, #ffffff40), #dbe3ed59;
+  --control-glass-hover: linear-gradient(135deg, #ffffffe6, #ffffff66), #dbe3ed40;
+  --control-border: #ffffffa6;
+  --control-shadow: 0 2px 8px #20334c12, inset 0 1px 1px #fffffff2, inset 0 -1px 1px #52647a2e;
+  --control-blur: blur(12px) saturate(1.6);
+  /* The sheen fades out before the label so white text keeps 4.5:1. */
+  --accent-glass: linear-gradient(160deg, #ffffff38, #ffffff00 40%), color-mix(in srgb, var(--blue) 94%, transparent);
+  --accent-glass-hover: linear-gradient(160deg, #ffffff38, #ffffff00 40%), color-mix(in srgb, var(--blue-hover) 94%, transparent);
+  --accent-border: #ffffff52;
+  --accent-shadow: 0 4px 14px color-mix(in srgb, var(--blue) 24%, transparent), inset 0 1px 1px #ffffff8c, inset 0 -1px 1px #0a2f7a47;
+}
+html { scroll-padding-top: 100px; }
+.app:not(.in-game) {
+  padding-top: max(12px, env(safe-area-inset-top));
+  background: radial-gradient(ellipse 65% 420px at 75% 0, #e4edf780, transparent), var(--page);
+}
+/* Empty space between the pills is transparent and lets pointer input through. */
+.topbar {
+  position: sticky;
+  top: max(12px, env(safe-area-inset-top));
+  z-index: 20;
+  height: auto;
+  background: none;
+  pointer-events: none;
+}
+.topbar-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  align-items: center;
+  gap: 12px;
+  min-height: 60px;
+}
+.topbar .brand, .topbar .header-actions, .mobile-tabs {
+  pointer-events: auto;
+  display: flex;
+  align-items: center;
+  min-height: 60px;
+  border-radius: 999px;
+  background: var(--nav-glass);
+  border: 1px solid var(--nav-border);
+  -webkit-backdrop-filter: var(--nav-blur);
+  backdrop-filter: var(--nav-blur);
+  box-shadow: var(--nav-shadow);
+}
+.topbar .brand {
+  grid-column: 1;
+  justify-self: start;
+  gap: 10px;
+  padding: 5px 22px 5px 8px;
+  font-size: 20px;
+  font-weight: 600;
+  color: #1d1d1f;
+  letter-spacing: normal;
+  white-space: nowrap;
+}
+.brand-symbol { width: 46px; height: 46px; border-radius: 15px; flex-shrink: 0; }
+.topbar .header-actions {
+  grid-column: 3;
+  justify-self: end;
+  gap: 6px;
+  padding: 6px;
+  margin: 0;
+}
+.topbar .profile-button, .topbar .connection-button {
+  min-height: 46px;
+  padding: 0 14px;
+  border-radius: 999px;
+  font-size: 15px;
+  font-weight: 550;
+  color: #1d1d1f;
+  white-space: nowrap;
+  transition: background-color .2s ease, color .2s ease, box-shadow .2s ease;
+}
+.topbar .connection-button {
+  background: linear-gradient(135deg, #ffffff52, #ffffff0d), #dbe3ed26;
+  border: 1px solid #ffffff73;
+  box-shadow: inset 0 1px 1px #ffffffa6, inset 0 -1px 1px #52647a24, 0 2px 5px #20334c0a;
+  color: #263f60;
+  font-weight: 600;
+}
+.topbar .connection-button > span { display: inline; }
+.topbar .connection-button.connected { color: #27734f; }
+.library { padding-top: 32px; }
+/* The library keeps its compact two-column layout on phones. */
+.mobile-tabs { display: none; }
+@media (max-width: 1000px) and (min-width: 761px) {
+  .topbar-inner { padding-inline: 24px; }
+  .topbar .brand { padding-right: 16px; font-size: 18px; }
+  .topbar .profile-button, .topbar .connection-button { padding-inline: 10px; font-size: 14px; }
+}
+@media (max-width: 760px) {
+  .app:not(.in-game) { padding-top: max(8px, env(safe-area-inset-top)); }
+  .topbar { top: max(8px, env(safe-area-inset-top)); }
+  .topbar-inner {
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    gap: 6px;
+    min-height: 56px;
+    padding-inline: max(10px, env(safe-area-inset-left)) max(10px, env(safe-area-inset-right));
+  }
+  .topbar .brand { width: 56px; min-height: 56px; padding: 0; justify-content: center; }
+  .topbar .brand > span { display: none; }
+  .brand-symbol { width: 42px; height: 42px; border-radius: 14px; }
+  .app:not(.in-game) .topbar .header-actions {
+    display: flex;
+    flex-wrap: nowrap;
+    min-height: 56px;
+    padding: 5px;
+    gap: 3px;
+  }
+  .topbar .profile-button {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-width: 48px;
+    min-height: 44px;
+    padding: 4px 6px;
+    gap: 2px;
+    font-size: 11px;
+    border-radius: 16px;
+  }
+  .topbar .connection-button { min-height: 44px; padding: 0 10px; gap: 4px; font-size: 12px; }
+  .topbar .connection-button > svg { width: 19px; height: 19px; flex-shrink: 0; }
+  .topbar .connection-button > span { max-width: 11ch; overflow: hidden; text-overflow: ellipsis; }
+  .library { padding-top: 24px; padding-bottom: max(32px, env(safe-area-inset-bottom)); }
+}
+@media (max-width: 360px) {
+  .topbar .connection-button { flex-direction: column; justify-content: center; padding: 4px 8px; gap: 2px; font-size: 11px; }
+}
+@media (hover: hover) {
+  .topbar .profile-button:hover:not([aria-disabled="true"]), .topbar .connection-button:hover,
+  .mobile-tabs button:hover:not([aria-disabled="true"]) {
+    background: #ffffff66;
+    color: #074d9f;
+    box-shadow: inset 0 1px 0 #ffffff80, 0 1px 4px #20334c0a;
+  }
+}
+:root:is([data-transparency="reduce"], [data-contrast="high"]) {
+  --nav-glass: #fafbfe;
+  --nav-blur: none;
+  --nav-border: #76849a;
+  --nav-shadow: none;
+  --control-glass: #e4e9ef;
+  --control-glass-hover: #d9e0e8;
+  --control-border: #76849a;
+  --control-shadow: none;
+  --control-blur: none;
+  --accent-glass: var(--blue);
+  --accent-glass-hover: var(--blue-hover);
+  --accent-border: transparent;
+  --accent-shadow: none;
+}
+@media (prefers-reduced-transparency: reduce), (prefers-contrast: more) {
+  :root {
+    --nav-glass: #fafbfe;
+    --nav-blur: none;
+    --nav-border: #76849a;
+    --nav-shadow: none;
+    --control-glass: #e4e9ef;
+    --control-glass-hover: #d9e0e8;
+    --control-border: #76849a;
+    --control-shadow: none;
+    --control-blur: none;
+    --accent-glass: var(--blue);
+    --accent-glass-hover: var(--blue-hover);
+    --accent-border: transparent;
+    --accent-shadow: none;
+  }
+}
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  :root {
+    --nav-glass: #fafbfe;
+    --control-glass: #eef1f5;
+    --control-glass-hover: #e4e8ee;
+    --accent-glass: var(--blue);
+    --accent-glass-hover: var(--blue-hover);
+  }
+}
+
+/* Glass controls: every filled button, plus the selected option in a segmented
+   control, shares the topbar's frosted surface. Disabled buttons stay solid. */
+.secondary-button,
+.close-button,
+.bowl-nudge,
+.mode-switch button.selected,
+.night-length button.selected {
+  background: var(--control-glass);
+  border: 1px solid var(--control-border);
+  -webkit-backdrop-filter: var(--control-blur);
+  backdrop-filter: var(--control-blur);
+  box-shadow: var(--control-shadow);
+}
+.secondary-button:hover:not(:disabled),
+.close-button:hover,
+.bowl-nudge:active:not(:disabled) {
+  background: var(--control-glass-hover);
+}
+.primary-button {
+  background: var(--accent-glass);
+  border: 1px solid var(--accent-border);
+  -webkit-backdrop-filter: var(--control-blur);
+  backdrop-filter: var(--control-blur);
+  box-shadow: var(--accent-shadow);
+}
+.primary-button:hover:not(:disabled) {
+  background: var(--accent-glass-hover);
+  box-shadow: var(--accent-shadow);
+}
+:is(.primary-button, .secondary-button):disabled {
+  border-color: transparent;
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .topbar button { transition: none; }
+}
+:root[data-motion="reduce"] .topbar button { transition: none; }
+@media (forced-colors: active) {
+  :root {
+    --nav-glass: Canvas;
+    --nav-blur: none;
+    --nav-border: CanvasText;
+    --nav-shadow: none;
+  }
+  .topbar .brand { color: CanvasText; }
+  .topbar .connection-button { background: ButtonFace; color: ButtonText; border: 1px solid ButtonText; }
+  :root {
+    --control-glass: ButtonFace;
+    --control-glass-hover: ButtonFace;
+    --control-border: ButtonText;
+    --control-shadow: none;
+    --control-blur: none;
+    --accent-glass: Highlight;
+    --accent-glass-hover: Highlight;
+    --accent-border: ButtonText;
+    --accent-shadow: none;
+  }
+}

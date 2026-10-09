@@ -1,0 +1,18 @@
+.court-overlay .ready-instruction {
+  margin: 12px 20px 0;
+  max-width: 34ch;
+  font-size: clamp(15px, 1.8vw, 21px);
+  line-height: 1.5;
+  color: #415c6b;
+}
+.court-overlay .ready-instruction strong { color: #1c526e; white-space: nowrap; }
+.motion-game-hint {
+  margin: 16px auto 10px;
+  max-width: 31ch;
+  font-size: 15px;
+  line-height: 1.5;
+  text-align: center;
+  color: var(--muted);
+}
+.controller-page .motion-game-hint { order: 2; }
+:root[data-contrast="high"] .ready-instruction { color: #183b50; }
