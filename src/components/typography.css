@@ -1,0 +1,99 @@
+/* Regular, closely spaced Figtree matching the site on non-Apple devices.
+   Apple devices retain the site’s native SF Pro weights and spacing.
+   Smaller labels keep a little more weight and space for quick reading. */
+:root:where(:not(.apple)) {
+  --heading-tracking: -0.035em;
+}
+
+:root:where(:not(.apple)) :is(h1, h2),
+:root:where(:not(.apple)) .catalog-heading h2,
+:root:where(:not(.apple)) .page-heading h1,
+:root:where(:not(.apple)) .play-library .page-heading h1,
+:root:where(:not(.apple)) .phone-welcome h1,
+:root:where(:not(.apple)) .game-main .game-topline h1,
+:root:where(:not(.apple)) .launch-setup .launch-form .setup-howto h2,
+:root:where(:not(.apple)) .sheet-header h2,
+:root:where(:not(.apple)) .controller-page :is(.join-room, .controller-wait, .active-controller) h1,
+:root:where(:not(.apple)) .game-main :is(.court-overlay, .arcade-overlay, .turn-handoff, .round-finished) h2 {
+  font-weight: 400;
+  letter-spacing: var(--heading-tracking);
+}
+
+:root:where(:not(.apple)) :is(h3, h4),
+:root:where(:not(.apple)) .shelf-copy h3,
+:root:where(:not(.apple)) .brand {
+  font-weight: 450;
+  letter-spacing: -0.025em;
+}
+
+:root:where(:not(.apple)) .shelf-copy p {
+  letter-spacing: -0.01em;
+}
+
+:root:where(:not(.apple)) .shelf-play,
+:root:where(:not(.apple)) .header-actions > button,
+:root:where(:not(.apple)) .primary-button,
+:root:where(:not(.apple)) .secondary-button,
+:root:where(:not(.apple)) .launch-setup .launch-form > .primary-button,
+:root:where(:not(.apple)) .controller-page .input-choice-row > .primary-button,
+:root:where(:not(.apple)) .controller-page .motion-action {
+  font-weight: 500;
+  letter-spacing: -0.015em;
+}
+
+:root:where(:not(.apple)) .launch-form :is(.setup-players, .setup-difficulty) legend,
+:root:where(:not(.apple)) .difficulty-options span,
+:root:where(:not(.apple)) .game-main .ready-instruction,
+:root:where(:not(.apple)) .game-main :is(.ready-step, .phone-key) {
+  font-weight: 500;
+  letter-spacing: -0.015em;
+}
+
+/* Game scores and celebrations share the site's regular display type.
+   Canvas overlays use the same values in lib/system-font.ts. */
+:root:where(:not(.apple)) :is(.result-score, .best-scores strong),
+:root:where(:not(.apple)) .game-main :is(
+  .hud-score, .rally-point, .hockey-goal, .moles-feedback,
+  .archery-shot-result strong, .solo-result strong, .finish-scores strong
+) {
+  font-weight: 400;
+  letter-spacing: -0.035em;
+}
+
+/* Small instruments and instructions retain enough weight to read at a glance. */
+:root:where(:not(.apple)) .game-main :is(
+  .hud-info, .overlay-eyebrow, .rally-hud-score > small,
+  .arcade-standings strong, .arcade-standings > span > span,
+  .finish-medal text, .finish-scores > div > span, .finish-scores strong small,
+  .solo-result span, .handoff-detail, .hockey-tag, .rally-tag,
+  .wind-badge, .wind-badge strong, .archery-shot-status,
+  .arcade-overlay p strong, .maze-breakdown, .game-play-hint
+),
+:root:where(:not(.apple)) .game-main .game-topline :is(.fruit-timer, .moles-timer) > strong {
+  font-weight: 500;
+  letter-spacing: -0.015em;
+}
+
+/* Other game headings and controls, including setup and the in-game menu. */
+:root:where(:not(.apple)) .game-main :is(h1, h2),
+:root:where(:not(.apple)) .app.in-game .sheet-header h2,
+:root:where(:not(.apple)) .controller-page .active-controller h1 {
+  font-weight: 400;
+  letter-spacing: -0.035em;
+}
+:root:where(:not(.apple)) .game-main :is(h3, h4),
+:root:where(:not(.apple)) .app.in-game .menu-how h3 {
+  font-weight: 450;
+  letter-spacing: -0.025em;
+}
+:root:where(:not(.apple)) .game-main :is(button, input, select, .setup-player, .setup-check),
+:root:where(:not(.apple)) .app.in-game :is(.primary-button, .secondary-button, .text-button),
+:root:where(:not(.apple)) .controller-page .active-controller :is(button, .motion-action) {
+  font-weight: 500;
+  letter-spacing: -0.015em;
+}
+:root:where(:not(.apple)) .game-main .play-steps,
+:root:where(:not(.apple)) .app.in-game .menu-how .play-steps {
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}

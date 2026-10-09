@@ -1,0 +1,68 @@
+/* The maze is drawn on a canvas that fills the arena; its pale blue matches
+   the canvas edge so the maze sits centered. */
+.maze-arena {
+  position: relative;
+  background: #eaf1f3;
+}
+.maze-arena canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+/* Which maze, then the same stopwatch as the timed games. */
+.maze-hud {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.maze-hud > .hud-info {
+  font-size: 18px;
+}
+/* Narrow bars say "Maze 1/5" so the count is never cut off. */
+@media (max-width: 999px) {
+  .maze-hud {
+    gap: 12px;
+  }
+  .maze-hud > .hud-info {
+    overflow: visible;
+  }
+  .maze-hud .maze-level-long {
+    display: none;
+  }
+  .maze-hud > .hud-info::after {
+    content: "/" attr(data-total);
+  }
+}
+.court-overlay .maze-stars {
+  display: flex;
+  justify-content: center;
+  line-height: 1;
+}
+:root[data-motion="full"] .maze-stars .earned {
+  animation: maze-star 360ms cubic-bezier(0.2, 0.9, 0.3, 1.4) both;
+}
+.maze-stars .earned:nth-child(2) {
+  animation-delay: 120ms;
+}
+.maze-stars .earned:nth-child(3) {
+  animation-delay: 240ms;
+}
+@keyframes maze-star {
+  from {
+    transform: scale(0.4);
+    opacity: 0;
+  }
+}
+.maze-breakdown {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px 20px;
+  margin: 0 0 8px;
+  padding: 0;
+  list-style: none;
+  font-size: clamp(18px, 2vw, 24px);
+  font-weight: 600;
+  color: var(--muted);
+}

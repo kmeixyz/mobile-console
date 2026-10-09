@@ -1,0 +1,47 @@
+# Dependencies and build output
+node_modules/
+dist/
+*.tsbuildinfo
+
+# Environment and local certificates
+.env
+.env.*
+certs/
+*.pem
+*.key
+
+# OS and editor
+.DS_Store
+.vscode/
+.idea/
+
+# Logs
+*.log
+
+# Tests (kept locally, not part of the production repo)
+tests/
+playwright.config.ts
+playwright-report/
+test-results/
+
+# Local workspace settings and generated artifacts
+/.*
+!/.gitignore
+
+# Docs, notes and tooling (kept locally): the repo holds only what the app
+# needs to build, run and deploy
+*.md
+*.txt
+/videos/
+/scripts/
+
+# Unused code and art, kept locally
+/public/art/bowling.svg
+/src/lib/bowling.mjs
+/src/components/PartyEditor.tsx
+/src/components/SessionRecap.tsx
+
+# Other local caches
+.vite/
+coverage/
+*.local
