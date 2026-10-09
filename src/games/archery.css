@@ -1,0 +1,30 @@
+.archery-game .target-wrap {
+  position: relative;
+}
+/* Archery.tsx moves and scales the wind with the zoom, from its top middle. */
+.archery-game .wind-badge {
+  transform-origin: top center;
+}
+.archery-shot-status {
+  position: absolute;
+  inset: auto 12px 16px;
+  display: flex;
+  justify-content: center;
+  pointer-events: none;
+  color: #29465a;
+  text-align: center;
+}
+.archery-shot-result {
+  background: #fffdf7;
+  border: 0;
+  border-radius: 18px;
+  box-shadow: 0 8px 24px #29465a18;
+  min-width: 130px;
+  padding: 6px 24px 8px;
+  display: grid;
+}
+.archery-shot-result strong {
+  font-size: clamp(40px, 5.5vw, 64px);
+  line-height: 1.1;
+  letter-spacing: -0.04em;
+}

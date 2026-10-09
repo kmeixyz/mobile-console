@@ -1,0 +1,44 @@
+.arcade-game { gap: 10px; }
+.arcade-standings { display: flex; flex-wrap: wrap; justify-content: center; }
+.arcade-standings > span { display: flex; align-items: center; gap: 7px; min-width: 0; font-size: 14px; color: #1d1d1f; }
+.arcade-standings strong { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 18ch; font-weight: 600; }
+.arcade-player-dot { width: 8px; height: 8px; flex: 0 0 8px; border-radius: 50%; box-shadow: inset 0 0 0 1px rgba(0, 0, 0, .12); }
+.arcade-standings > span > span { color: #48484a; font-weight: 500; font-variant-numeric: tabular-nums; }
+.arcade-arena { position: relative; isolation: isolate; min-height: 340px; background: #dce8e4; overflow: hidden; }
+.arcade-arena canvas { display: block; width: 100%; height: 100%; position: absolute; inset: 0; }
+.arcade-overlay { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; padding: 24px; text-align: center; background: rgba(248, 252, 250, .78); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); color: #1d1d1f; }
+.arcade-overlay h2 { font-size: clamp(40px, 6vw, 64px); font-weight: 550; line-height: 1.1; margin: 0; letter-spacing: .0135em; }
+.arcade-overlay p { margin: 0; font-size: 17px; line-height: 1.47; color: #6e6e73; letter-spacing: -.01em; }
+.arcade-overlay p strong { color: #1c526e; font-weight: 600; white-space: nowrap; }
+.arcade-overlay .ready-instruction { margin: 12px 20px 0; max-width: 38ch; font-size: clamp(15px, 1.8vw, 21px); line-height: 1.5; color: #415c6b; }
+.arcade-result-detail { display: block; margin-top: 4px; color: var(--muted); font-size: 13px; }
+.arcade-hud-score { color: #416b8c; }
+.game-topline .arcade-timer { color: #416b8c; }
+.game-topline .arcade-timer.is-urgent { color: #a2342b; }
+@media (max-width: 760px) {
+  .arcade-arena { min-height: 340px; }
+  .game-main .phone-game .arcade-arena.arcade-split { min-height: 430px; }
+  .arcade-standings > span { font-size: 13px; gap: 6px; }
+  .arcade-overlay p { font-size: 14px; }
+}
+
+.kart-result-highlights { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+.kart-result-highlights small { padding: 4px 8px; border-radius: 6px; background: var(--surface, #edf1f4); color: var(--muted); font-size: 12px; font-weight: 500; }
+.kart-ready-hint { max-width: 420px; }
+
+
+
+/* The circuit is the focus; chrome keeps the same calm, bright material. */
+.arcade-kart .arcade-arena { background: #d6edf1; border-color: #d4e1e3; }
+.arcade-kart .arcade-overlay {
+  justify-content: flex-end;
+  padding-bottom: clamp(62px, 14vh, 140px);
+  background: linear-gradient(180deg, #f5fbfa08 25%, #f5fbfaed 75%);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+.arcade-kart .arcade-overlay h2 { color: #243f49; font-weight: 650; letter-spacing: -.035em; }
+.arcade-kart .arcade-overlay .ready-instruction { color: #44616c; }
+@media (max-width: 560px) {
+  .arcade-kart .arcade-overlay { padding: 24px 18px 80px; }
+}

@@ -1,0 +1,308 @@
+/* Text contrast matches Waiting at Lurie: neutral near-black ink, a neutral
+   gray for secondary text, and firmer dividers, without flattening game art. */
+:root {
+  --ink: #1d1d1f;
+  --muted: #61616a;
+  --line: #dedee5;
+  --blue: #075bc7;
+  --blue-hover: #074d9f;
+}
+@media (prefers-contrast: more) {
+  :root { --muted: #3d3d42; --line: #8b8b93; }
+}
+/* Headings are medium weight, matching Waiting at Lurie's game screens. */
+h1, h2 { font-weight: 550; }
+.shelf-copy h3 { color: var(--ink); }
+.profile-button[aria-disabled="true"], .mobile-tabs button[aria-disabled="true"] {
+  opacity: 1;
+  color: var(--muted);
+}
+:is(.primary-button, .secondary-button):disabled {
+  opacity: 1;
+  color: var(--muted);
+  background: #e2e7ed;
+  box-shadow: none;
+}
+.name-setting input, .player-inputs input, .name-input,
+.room-code-input, .score-filter select { border-color: #7c8796; }
+:where(input, select):hover { border-color: #526273; }
+/* Fields keep a visible boundary without a blue halo when clicked. */
+:is(input, select, textarea):focus { outline: none; }
+.switch { background: #68756d; }
+.switch.on { background: #397848; }
+.switch > span { color: #397848; }
+.close-button { color: var(--ink); }
+.mobile-tabs button { transition: background-color .2s ease, color .2s ease, box-shadow .2s ease; }
+/* One label per setting, with enough space for comfortable switch targets. */
+.settings-sheet .sheet-header { margin-bottom: 20px; }
+.settings-sheet .name-setting > span {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: 20px;
+}
+.settings-sheet .name-setting input { margin: 0; min-width: 0; }
+.settings-sheet .settings-group { margin: 20px 0; }
+.settings-sheet .setting-row { min-height: 62px; padding: 9px 16px; }
+.settings-sheet .setting-label { display: flex; align-items: center; gap: 12px; min-width: 0; cursor: pointer; }
+.settings-sheet .setting-label > svg { flex-shrink: 0; color: var(--blue); }
+.settings-sheet .setting-row strong { font-size: 15px; line-height: 1.35; }
+@media (max-width: 370px) {
+  .settings-sheet .setting-row { padding-inline: 12px; gap: 8px; }
+  .settings-sheet .setting-label { gap: 8px; }
+  .settings-sheet .setting-row strong { font-size: 14px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .mobile-tabs button { transition: none; }
+}
+:root[data-motion="reduce"] .mobile-tabs button { transition: none; }
+@media (forced-colors: active) {
+  .switch { background: ButtonFace; border: 1px solid ButtonText; }
+  .switch.on { background: Highlight; }
+  .switch > span { background: ButtonText; color: ButtonFace; }
+  :is(.primary-button, .secondary-button):disabled { background: ButtonFace; color: GrayText; }
+}
+/* A taller, bolder caret drawn by lib/caret.ts. The native caret is hidden
+   only while the drawn one is attached to the field. */
+input[data-text-caret] { caret-color: transparent; }
+.text-caret {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 1000;
+  width: 3px;
+  border-radius: 2px;
+  background: var(--blue);
+  box-shadow: 0 0 0 0.5px #075bc733;
+  pointer-events: none;
+  animation: text-caret-blink 1.1s ease-in-out infinite;
+}
+@keyframes text-caret-blink {
+  0%, 50% { opacity: 1; }
+  62%, 88% { opacity: 0; }
+  100% { opacity: 1; }
+}
+.text-caret-ruler {
+  position: absolute;
+  top: 0;
+  left: -9999px;
+  visibility: hidden;
+  white-space: pre;
+  pointer-events: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .text-caret { animation: none; }
+}
+:root[data-motion="reduce"] .text-caret { animation: none; }
+@media (forced-colors: active) {
+  .text-caret { forced-color-adjust: none; background: Highlight; box-shadow: none; }
+}
+/* Scores is unavailable: faded and desaturated so it reads as disabled, but
+   still legible. */
+.topbar .scores-button > * { opacity: .7; filter: grayscale(1); }
+@media (forced-colors: active) {
+  .topbar .scores-button > * { opacity: 1; color: GrayText; }
+}
+/* How to play: short steps as plain lines, each led by its number as text,
+   flush with the heading's left edge; wrapped lines align with the text. */
+.play-steps {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  color: var(--ink);
+  font-size: 1rem;
+  line-height: 1.55;
+}
+.play-steps p {
+  display: grid;
+  grid-template-columns: 1.1em 1fr;
+  column-gap: 0.25em;
+  margin: 0;
+  color: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+.play-steps p > span { font-variant-numeric: tabular-nums; }
+/* Each game's start prompt reads from across the room. Its weight and
+   tracking match the game title above it, in proportion to its larger size
+   (the title is 26px with 0.35px tracking, or 20px with 0.5px on phones). */
+:is(.fruit-arena, .moles-garden, .hockey-arena, .rally-arena, .maze-arena) .court-overlay h2 {
+  font-size: clamp(40px, 6vw, 64px);
+  line-height: 1.1;
+  font-weight: 550;
+  letter-spacing: 0.0135em;
+}
+@media (max-width: 760px) {
+  :is(.fruit-arena, .moles-garden, .hockey-arena, .rally-arena, .maze-arena) .court-overlay h2 { letter-spacing: 0.025em; }
+}
+/* The End this game? confirmation is a little larger than other sheets, so its
+   two choices are easy to read and hit mid-game. */
+@media (min-width: 761px) {
+  .sheet.end-game-sheet { width: min(540px, calc(100% - 38px)); border-radius: 32px; }
+}
+.end-game-sheet .sheet-content { padding: 32px; }
+.end-game-sheet .sheet-header { margin-bottom: 28px; }
+.end-game-sheet .sheet-header h2 { font-size: 28px; line-height: 1.2; }
+.end-game-sheet .close-button { width: 50px; height: 50px; }
+.end-game-sheet .close-button svg { width: 23px; height: 23px; }
+.end-game-sheet .full-width { min-height: 56px; font-size: 17px; }
+.end-game-sheet .full-width + .full-width { margin-top: 12px; }
+/* Fruit Slice options share one box; Hard mode sits under Add bombs,
+   lined up with its label. */
+.setup-checks {
+  display: grid;
+  padding: 4px 16px;
+  background: var(--page);
+  border-radius: var(--radius-field);
+}
+.setup-checks .setup-check { padding: 12px 0; background: none; border-radius: 0; }
+.setup-checks .setup-check-sub { padding-left: 30px; border-top: 1px solid var(--line); }
+/* The phone logo and connection status share the navigation glass. */
+.controller-header .brand,
+.controller-header .controller-connected {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 52px;
+  padding: 4px 14px;
+  border-radius: 999px;
+  background: var(--nav-glass);
+  border: 1px solid var(--nav-border);
+  -webkit-backdrop-filter: var(--nav-blur);
+  backdrop-filter: var(--nav-blur);
+  box-shadow: var(--nav-shadow);
+}
+.controller-header .brand { width: 52px; padding: 4px; }
+.controller-header .controller-connected {
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: normal;
+}
+.controller-header .controller-connected { color: #27734f; }
+.controller-header .brand-symbol { width: 40px; height: 40px; border-radius: 13px; }
+@media (max-width: 420px) {
+  .controller-header .brand { width: 46px; min-height: 46px; }
+  .controller-header .controller-connected { min-height: 46px; padding-inline: 12px; }
+  .controller-header .brand-symbol { width: 36px; height: 36px; border-radius: 12px; }
+}
+@media (max-width: 760px), (hover: none) and (pointer: coarse) {
+  .topbar .brand { width: 56px; min-height: 56px; padding: 0; justify-content: center; }
+  .topbar .brand > span { display: none; }
+}
+@media (forced-colors: active) {
+  .controller-header .brand { color: CanvasText; }
+}
+
+/* Phone controls: one generous, circular action target for every game. */
+.controller-page .motion-input {
+  padding: 12px;
+}
+.motion-input .motion-action,
+.controller-page .input-choice-row > .motion-enable {
+  width: min(100%, 480px);
+  aspect-ratio: 1;
+  height: auto;
+  min-height: 0;
+  margin-inline: auto;
+  border-radius: 50%;
+  flex-direction: column;
+  justify-content: center;
+  gap: 12px;
+  padding: 24px;
+  font-size: clamp(32px, 10vw, 56px);
+  letter-spacing: .04em;
+  flex-shrink: 0;
+}
+.controller-page .input-choice-row > .motion-enable {
+  font-size: clamp(44px, 14vw, 72px);
+  line-height: 1.1;
+  letter-spacing: normal;
+}
+.motion-action > .motion-action-label { flex: 0; }
+.motion-action.waiting > .motion-action-label {
+  max-width: 11ch;
+  font-size: .6em;
+  line-height: 1.2;
+}
+.motion-action .motion-action-hint {
+  max-width: 20ch;
+  font-size: clamp(14px, 4vw, 18px);
+  line-height: 1.4;
+  font-weight: 500;
+  letter-spacing: normal;
+}
+.controller-page .motion-body { display: flex; flex-direction: column; }
+.controller-page .motion-guidance { order: 0; }
+.controller-page .motion-action { order: 1; }
+.controller-page .motion-hint { order: 2; }
+.controller-page .phone-aim-preview,
+.controller-page .calibration-row,
+.controller-page .bowl-pad { order: 3; }
+@media (orientation: landscape) and (max-height: 500px) {
+  .motion-input .motion-action { width: min(100%, 70dvh); font-size: 32px; }
+  .controller-page .input-choice-row > .motion-enable {
+    width: min(100%, 70dvh);
+    font-size: clamp(32px, 10dvh, 48px);
+  }
+}
+/* Recenter sits right under the aim preview, larger and centered, with the
+   aim status beneath it. */
+.controller-page .calibration-row {
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 2px;
+  margin: 6px 0 0;
+}
+.controller-page .calibration-row .recenter-button {
+  gap: 7px;
+  min-height: 48px;
+  padding: 8px 18px;
+  font-size: 16px;
+}
+.controller-page .calibration-row > span { text-align: center; }
+
+/* Turned sideways, the phone covers its controls with one instruction. */
+.rotate-prompt {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: max(24px, env(safe-area-inset-top)) max(32px, env(safe-area-inset-right))
+    max(24px, env(safe-area-inset-bottom)) max(32px, env(safe-area-inset-left));
+  background: #f5f5f7;
+  color: var(--ink);
+  text-align: center;
+}
+.rotate-prompt h2 {
+  margin: 12px 0 0;
+  font-size: 28px;
+  font-weight: 600;
+  letter-spacing: var(--heading-tracking);
+}
+.rotate-prompt p {
+  margin: 0;
+  max-width: 34ch;
+  color: #48484a;
+  font-size: 17px;
+  line-height: 1.4;
+}
+.rotate-prompt-phone {
+  color: #1c526e;
+  transform: rotate(90deg);
+  animation: rotate-upright 2.4s var(--ease) infinite;
+}
+@keyframes rotate-upright {
+  0%, 20% { transform: rotate(90deg); }
+  55%, 100% { transform: rotate(0deg); }
+}
+:root[data-motion="reduce"] .rotate-prompt-phone { animation: none; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  .rotate-prompt-phone { animation: none; transform: none; }
+}

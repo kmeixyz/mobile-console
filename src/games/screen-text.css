@@ -1,0 +1,9 @@
+/* In-game words, laid over the canvas as page text (see arcade/draw.ts). */
+.screen-text-layer { position: absolute; inset: 0; overflow: hidden; pointer-events: none; }
+.screen-text { position: absolute; left: 0; top: 0; color: var(--text-color); font-family: var(--font-body); line-height: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; -webkit-font-smoothing: antialiased; }
+.screen-text[hidden] { display: none; }
+.screen-text-toast { padding: .5em .85em; border-radius: 12px; background: #243e4b; box-shadow: 0 4px 16px #243e4b24; }
+/* Solid, quiet surfaces keep event feedback legible across every playfield. */
+.screen-text-headline { overflow: visible; padding: .18em .36em; border-radius: .3em; background: #243e4bf2; font-weight: 700 !important; box-shadow: 0 .12em .45em #18323e24; }
+.screen-text-callout { overflow: visible; padding: .16em .35em; border-radius: .3em; color: color-mix(in srgb, var(--text-color) 50%, #3c3027); background: #fffffff2; box-shadow: 0 .1em .35em #62482712; }
+.screen-text-chip { padding: .55em 1em; border-radius: 12px; background: #fff; box-shadow: inset 0 -2px 0 var(--text-color), 0 4px 14px #243e4b12; }

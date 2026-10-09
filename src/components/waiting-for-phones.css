@@ -1,0 +1,61 @@
+/* Same frosted cover as the arcade's Ready screen, over any game. */
+.game-stage {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0;
+  min-height: 0;
+}
+.phone-wait {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 24px;
+  border-radius: 22px;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.78);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  backdrop-filter: saturate(180%) blur(20px);
+  color: #1d1d1f;
+}
+.phone-wait h2 {
+  margin: 0 0 6px;
+  font-size: clamp(32px, 5vw, 56px);
+  font-weight: 550;
+  line-height: 1.1;
+  letter-spacing: 0.0135em;
+}
+.phone-wait p {
+  margin: 0;
+  max-width: 40ch;
+  color: #48484a;
+  font-size: clamp(16px, 1.8vw, 21px);
+  line-height: 1.45;
+}
+.phone-wait p strong {
+  color: #1c526e;
+  font-weight: 600;
+}
+.phone-wait-icon {
+  margin-bottom: 8px;
+  color: #1c526e;
+  animation: phone-wait-turn 2.4s var(--ease) infinite;
+}
+@keyframes phone-wait-turn {
+  0%, 20% { transform: rotate(90deg); }
+  55%, 100% { transform: rotate(0deg); }
+}
+:root[data-motion="reduce"] .phone-wait-icon { animation: none; }
+@media (prefers-reduced-motion: reduce) {
+  .phone-wait-icon { animation: none; }
+}
+:root[data-transparency="reduce"] .phone-wait {
+  background: #fff;
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+}

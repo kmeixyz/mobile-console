@@ -1,0 +1,402 @@
+/* One type system for every game: San Francisco throughout, bold numbers,
+   few words. Loaded last, so it settles the earlier layers' sizes and
+   weights for in-game text. */
+:root .game-main {
+  --game-ink: #1d2b36;
+  --game-muted: #5d6c78;
+  --game-accent: #2463db;
+  --game-chip: rgba(255, 255, 255, 0.96);
+  --game-hairline: rgba(29, 43, 54, 0.08);
+}
+
+/* Top bar: big, tight numerals; short goal text beside them. */
+:root .game-main .hud-score {
+  font-weight: 700;
+  letter-spacing: -0.035em;
+}
+:root .game-main .hud-info {
+  font-weight: 650;
+  letter-spacing: -0.015em;
+  color: var(--game-ink);
+}
+/* Numbers share one ink; only the last ten seconds turn red. */
+:root .game-main .hud-score > span,
+:root .game-main .game-topline :is(.fruit-timer, .moles-timer) > strong {
+  color: var(--game-ink);
+}
+:root .game-main .game-topline .is-urgent > strong,
+:root .game-main .game-topline .is-urgent > svg {
+  color: #c4372c;
+}
+:root .game-main .game-topline :is(.fruit-timer, .moles-timer) > svg {
+  color: var(--game-muted);
+}
+/* Timers: a touch lighter and roomier than the scores, a little larger to
+   keep the same presence. */
+:root .game-main .game-topline :is(.fruit-timer, .moles-timer) > strong {
+  font-size: 1.08em;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  font-variant-numeric: tabular-nums;
+}
+/* Two-player tables: each name and score sits on a quiet chip, like the
+   arcade standings. Sized in em so it shrinks with the bar. */
+:root .game-main .rally-hud-score {
+  gap: 0.35em;
+  width: fit-content;
+  padding: 0.2em 0.4em;
+  border: 0;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 4px 14px rgba(29, 43, 54, 0.055);
+  text-shadow: none;
+}
+:root .game-main .rally-hud-score > small {
+  margin: 0;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+/* Tablets and up: the chip grows with the screen, from 40px numerals on a
+   small tablet to 64px on a wide display. */
+@media (min-width: 761px) {
+  :root .game-main .rally-hud-score {
+    font-size: clamp(40px, 2.4vw + 18px, 64px);
+  }
+}
+
+/* Start, pause and between-turn screens: a name chip, one big word, then
+   the phone's buttons in order. */
+:root .game-main .overlay-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  max-width: 100%;
+  margin: 0 0 14px;
+  padding: 6px 16px;
+  border-radius: 999px;
+  background: rgba(36, 99, 219, 0.1);
+  color: #1f56c4;
+  font-size: clamp(15px, 1.5vw, 19px);
+  font-weight: 650;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+:root .game-main :is(.court-overlay, .arcade-overlay) h2,
+:root .game-main .turn-handoff h2 {
+  margin: 0;
+  color: var(--game-ink);
+  font-family: var(--font-body);
+  font-size: clamp(48px, 7vw, 84px);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0.01em;
+}
+:root .game-main .ready-instruction {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  max-width: none;
+  margin: 36px 0 0;
+  color: var(--game-ink);
+  font-size: clamp(20px, 2.4vw, 30px);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+/* Each step is a quiet surface, in order; the go step is the blue one. */
+:root .game-main :is(.ready-step, .phone-key) {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+  padding: 0.6em 1.05em;
+  border: 0;
+  border-radius: 0.65em;
+  background: #fff;
+  box-shadow: 0 6px 20px rgba(29, 43, 54, 0.07);
+  color: var(--game-ink);
+  font-weight: 650;
+  white-space: nowrap;
+}
+.ready-step > svg {
+  width: 1.1em;
+  height: 1.1em;
+  color: var(--game-muted);
+}
+:root .game-main .ready-arrow {
+  width: 1.15em;
+  height: 1.15em;
+  color: var(--game-ink);
+  stroke-width: 2.75;
+  opacity: 0.75;
+}
+:root .game-main .phone-key.is-go {
+  background: var(--game-accent);
+  color: #fff;
+  box-shadow: 0 6px 18px rgba(36, 99, 219, 0.18);
+}
+
+/* Arcade standings: one quiet chip per player, with a bare number, in the
+   top bar. Four chips wrap to two rows when the bar is narrow. */
+:root .game-main .arcade-standings {
+  gap: 6px 8px;
+  padding: 0;
+}
+:root .game-main .arcade-standings > span {
+  gap: 8px;
+  padding: 5px 13px 5px 11px;
+  border: 0;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 3px 12px rgba(29, 43, 54, 0.05);
+  font-size: 14px;
+  white-space: nowrap;
+}
+:root .game-main .arcade-standings strong {
+  max-width: 12ch;
+  color: #3a4954;
+  font-weight: 600;
+}
+:root .game-main .arcade-standings > span > span {
+  min-width: 1ch;
+  color: var(--game-ink);
+  font-weight: 750;
+  font-variant-numeric: tabular-nums;
+}
+:root .game-main .arcade-player-dot {
+  width: 10px;
+  height: 10px;
+  flex-basis: 10px;
+}
+/* Two players a side leave room to spare on wide screens, so their chips
+   grow into it. Narrower screens keep compact chips so names stay readable;
+   phones use the two-by-two grid. */
+@media (min-width: 1180px) {
+  :root .game-main .arcade-standings.is-sided {
+    flex-wrap: nowrap;
+    gap: 12px;
+  }
+  :root .game-main .arcade-standings.is-sided > span {
+    gap: 12px;
+    padding: 10px 22px 10px 18px;
+    font-size: 21px;
+  }
+  :root .game-main .arcade-standings.is-sided .arcade-player-dot {
+    width: 15px;
+    height: 15px;
+    flex-basis: 15px;
+  }
+}
+
+/* Results: one cheerful line, then the scores, big. Everything is sized in
+   --r, a pixel that grows with the screen (by width or height, whichever is
+   tighter) so four medal rows and the buttons still fit without scrolling. */
+:root .game-main .round-finished {
+  --r: clamp(1px, min(0.095vw, 0.15vh), 1.8px);
+  max-width: min(100%, calc(var(--r) * 560));
+  margin: 0 auto;
+  padding: 4px 15px 16px;
+}
+:root .game-main .round-finished h2 {
+  color: var(--game-ink);
+  font-size: min(calc(var(--r) * 60), 11vw);
+  font-weight: 550;
+  line-height: 1.05;
+  letter-spacing: var(--heading-tracking);
+}
+:root .game-main .finish-scores {
+  margin: calc(var(--r) * 20) auto;
+  padding: calc(var(--r) * 7) calc(var(--r) * 22);
+  border-radius: calc(var(--r) * 18);
+}
+/* Each place: a medal, the name, then the score at the far end. */
+:root .game-main .finish-places > div {
+  justify-content: flex-start;
+  gap: calc(var(--r) * 18);
+  padding: calc(var(--r) * 6) 0;
+}
+:root .game-main .finish-places strong {
+  margin-left: auto;
+}
+.finish-medal {
+  flex-shrink: 0;
+  width: calc(var(--r, 1px) * 52);
+  height: calc(var(--r, 1px) * 63);
+}
+.finish-medal text {
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+:root .game-main .finish-scores > div > span {
+  color: #3a4954;
+  font-size: calc(var(--r) * 20);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+:root .game-main .finish-scores strong {
+  display: inline-flex;
+  align-items: center;
+  color: var(--game-ink);
+  font-size: calc(var(--r) * 34);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+:root .game-main .finish-scores strong small {
+  display: inline;
+  margin-left: 0.35em;
+  color: var(--game-muted);
+  font-size: calc(var(--r) * 15);
+  font-weight: 600;
+  letter-spacing: 0;
+}
+:root .game-main .solo-result strong {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(var(--r) * 100);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.045em;
+}
+:root .game-main .round-finished .finish-actions {
+  gap: calc(var(--r) * 12);
+}
+:root .game-main .round-finished .finish-actions > button {
+  min-height: calc(var(--r) * 50);
+  padding: calc(var(--r) * 12) calc(var(--r) * 26);
+  border-radius: 999px;
+  gap: calc(var(--r) * 9);
+  font-size: calc(var(--r) * 17);
+}
+:root .game-main .round-finished .finish-actions svg {
+  width: 1.1em;
+  height: 1.1em;
+}
+:root .game-main .solo-result span {
+  font-size: calc(var(--r) * 17);
+  font-weight: 600;
+}
+
+/* Between turns: "Up next", the name, and how the last turn went. */
+:root .game-main .turn-handoff .overlay-eyebrow {
+  margin-bottom: 18px;
+}
+:root .game-main .turn-handoff .handoff-detail {
+  margin: 16px 0 0;
+  color: var(--game-muted);
+  font-size: clamp(17px, 1.8vw, 21px);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+:root .game-main .turn-handoff .ready-instruction {
+  margin-top: 28px;
+}
+:root .game-main .turn-handoff .primary-button {
+  margin: 28px 0 0;
+}
+
+/* Maze stars: the same gold star as every score, dimmed until earned. */
+:root .game-main .court-overlay .maze-stars {
+  gap: 0.14em;
+  margin: 20px 0 12px;
+  font-size: clamp(64px, 9vw, 104px);
+}
+.court-overlay .maze-stars > span {
+  display: inline-flex;
+}
+.court-overlay .maze-stars > span:not(.earned) {
+  filter: grayscale(1);
+  opacity: 0.25;
+}
+.court-overlay .maze-stars .points-star {
+  width: 1em;
+  height: 1em;
+  margin: 0;
+}
+:root .game-main .maze-breakdown {
+  gap: 8px;
+  margin: 0;
+  font-size: clamp(15px, 1.5vw, 18px);
+}
+:root .game-main .maze-breakdown li {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: var(--game-chip);
+  box-shadow: inset 0 0 0 1px var(--game-hairline);
+  color: var(--game-muted);
+}
+.maze-breakdown .points-star {
+  margin: 0;
+  filter: grayscale(1);
+  opacity: 0.45;
+}
+
+/* Floating calls on 3D tables: short and centered, tracked like the game's
+   title. The panel is sized in em so it grows with the words. */
+:root .game-main :is(.rally-point, .hockey-goal) {
+  padding: 0.23em 0.5em;
+  border-radius: 0.41em;
+  font-size: clamp(36px, 4.5vw, 55px);
+  font-weight: 550;
+  letter-spacing: 0.0135em;
+}
+:root .game-main .hockey-tag {
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+:root .game-main .archery-shot-result strong {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 750;
+}
+
+@media (max-width: 760px) {
+  /* Score chips: snug padding, and long names cut short so both chips and
+     the bar's icons fit. The name's clip box reaches past its trimmed text
+     so descenders aren't cut off. */
+  :root .game-main .rally-hud-score {
+    gap: 0.22em;
+    padding: 0.16em 0.32em;
+  }
+  :root .game-main .rally-hud-score > small {
+    min-width: 0;
+    max-width: 6.5em;
+    padding-block: 0.3em;
+    margin-block: -0.3em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  :root .game-main .ready-instruction {
+    gap: 8px;
+    margin-top: 24px;
+    font-size: 18px;
+  }
+  :root .game-main .ready-arrow {
+    display: none;
+  }
+}
+/* Phones and small tablets have no room for names in the top bar: a color
+   and a score, two by two. Each chip's label still names its player. */
+@media (max-width: 999px) {
+  :root .game-main .arcade-standings {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    gap: 4px;
+  }
+  :root .game-main .arcade-standings > span {
+    gap: 5px;
+    padding: 3px 8px;
+    font-size: 13px;
+  }
+  :root .game-main .arcade-standings strong {
+    display: none;
+  }
+}
